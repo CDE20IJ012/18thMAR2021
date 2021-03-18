@@ -1,0 +1,63 @@
+Factory Method Pattern
+A Factory Pattern or Factory Method Pattern says that just define an interface or abstract class for creating an object but let the subclasses decide which class to instantiate. In other words, subclasses are responsible to create the instance of the class.
+
+The Factory Method Pattern is also known as Virtual Constructor.
+
+Advantage of Factory Design Pattern
+Factory Method Pattern allows the sub-classes to choose the type of objects to create.
+It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code. That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class.
+Usage of Factory Design Pattern
+When a class doesn't know what sub-classes will be required to create
+When a class wants that its sub-classes specify the objects to be created.
+When the parent classes choose the creation of objects to its sub-classes.
+--------------------------------------------------------------------------------------------------------
+Abstract Factory
+    different shapes created just by one factory class.
+
+Scenario is we need to save book details. To save the book details I can prefer storing the details in a
+file ( I/O operations File handling ) or I can store the book details in a RDBMS like MySQL. So you 
+need to take the user input to store the details either in a file or in a table of RDBMS(MySQL).
+
+1) FILE
+2) TABLE
+Enter your choice
+-------------------------------------------------------------------------------------------------------------
+The demo code which is currently being show is with Shape , I can ask for a shape Rectangle or I can ask 
+for a shape Square or Circle.
+-----------------------------------------------------------------------------------------------------------
+Abstract Factory Pattern 
+We have different shapes but for different shapes(normal and rounded) we need different factories.
+So for different factory again we need a super single factory.
+
+
+  Factory which will further create factories and factories in turn will create object.
+
+
+-----------------------------------------------------------------------------------------------------------
+
+Shape.java ======> Interface 
+RoundedRectangle
+RoundedSquare
+Rectangle
+Square
+-----------------------
+
+This abstract factory can again be planned for whether we want to store the details in a file
+or in RDBMS.
+In file are we planning to store the data in binary form or in text form.
+In RDBMS whether we want to store the data in MYSQL or in Oracle.
+---------------------------------------------------------------------------------------------------
+
+----------------------------------
+
+Create an abstract class AbstractFactory
+
+This abstract class is for getting factories for Normal and Rounded shape objects
+
+Create Factory classes extending the AbstractFactory to generate object of concrete classes.
+
+ShapeFactory extends AbstractFactory========>
+RoundedShapeFactory extends AbstractFactory ===>
+
+FactoryProducer either creates the factory ShapeFactory or RoundedShapeFactory
+
